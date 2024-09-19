@@ -6,13 +6,13 @@ export default defineConfig({
   test: {
     coverage: {
       provider: "istanbul",
-      reportsDirectory: "./tests/coverage",
+      reportsDirectory: "./src/tests/coverage",
     },
   },
   plugins: [env()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./", import.meta.url)),
+      "@acme/core": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
 });

@@ -1,7 +1,7 @@
 import { signOutUseCase } from "@acme/core/application/use-cases/auth/sign-out.use-case";
 import { getInjection } from "@acme/core/di/container";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { Cookie } from "@acme/core/entities/models/cookie";
+import type { Cookie } from "@acme/core/entities/models/cookie";
 import { startSpan } from "@sentry/nextjs";
 
 export async function signOutController(

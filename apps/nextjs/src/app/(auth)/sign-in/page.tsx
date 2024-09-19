@@ -26,7 +26,7 @@ export default function SignIn() {
     const formData = new FormData(event.currentTarget);
 
     const res = await signIn(formData);
-    if (res && res.error) {
+    if (res.error) {
       setError(res.error);
     }
   };

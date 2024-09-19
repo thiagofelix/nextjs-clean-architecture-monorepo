@@ -2,7 +2,7 @@ import { toggleTodoUseCase } from "@acme/core/application/use-cases/todos/toggle
 import { getInjection } from "@acme/core/di/container";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { Todo } from "@acme/core/entities/models/todo";
+import type { Todo } from "@acme/core/entities/models/todo";
 import { startSpan } from "@sentry/nextjs";
 import { z } from "zod";
 

@@ -1,4 +1,4 @@
-type CookieAttributes = {
+interface CookieAttributes {
   secure?: boolean;
   path?: string;
   domain?: string;
@@ -6,10 +6,10 @@ type CookieAttributes = {
   httpOnly?: boolean;
   maxAge?: number;
   expires?: Date;
-};
+}
 
-export type Cookie = {
+export interface Cookie {
   name: string;
   value: string;
   attributes: CookieAttributes;
-};
+}

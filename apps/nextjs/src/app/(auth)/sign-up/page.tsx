@@ -25,8 +25,8 @@ export default function SignUp() {
 
     const formData = new FormData(event.currentTarget);
 
-    const password = formData.get("password")!.toString();
-    const confirmPassword = formData.get("confirm_password")!.toString();
+    const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirm_password") as string;
 
     if (password !== confirmPassword) {
       setError("Passwords must match");
@@ -34,7 +34,7 @@ export default function SignUp() {
     }
 
     const res = await signUp(formData);
-    if (res && res.error) {
+    if (res.error) {
       setError(res.error);
     }
   };

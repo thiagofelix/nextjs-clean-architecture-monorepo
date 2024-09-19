@@ -1,7 +1,8 @@
-import { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import type { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
 import { UsersRepository } from "@acme/core/infrastructure/repositories/users.repository";
 import { MockUsersRepository } from "@acme/core/infrastructure/repositories/users.repository.mock";
-import { ContainerModule, interfaces } from "inversify";
+import type { interfaces } from "inversify";
+import { ContainerModule } from "inversify";
 
 import { DI_SYMBOLS } from "../types";
 

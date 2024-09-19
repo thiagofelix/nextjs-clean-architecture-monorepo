@@ -1,8 +1,8 @@
 import { getInjection } from "@acme/core/di/container";
 import { AuthenticationError } from "@acme/core/entities/errors/auth";
-import { Cookie } from "@acme/core/entities/models/cookie";
-import { Session } from "@acme/core/entities/models/session";
-import { User } from "@acme/core/entities/models/user";
+import type { Cookie } from "@acme/core/entities/models/cookie";
+import type { Session } from "@acme/core/entities/models/session";
+import type { User } from "@acme/core/entities/models/user";
 import { hash } from "@node-rs/argon2";
 import { startSpan } from "@sentry/nextjs";
 

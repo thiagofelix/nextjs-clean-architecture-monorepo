@@ -1,7 +1,7 @@
 import { getTodosForUserUseCase } from "@acme/core/application/use-cases/todos/get-todos-for-user.use-case";
 import { getInjection } from "@acme/core/di/container";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
-import { Todo } from "@acme/core/entities/models/todo";
+import type { Todo } from "@acme/core/entities/models/todo";
 import { startSpan } from "@sentry/nextjs";
 
 function presenter(todos: Todo[]) {

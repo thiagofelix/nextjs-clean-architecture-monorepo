@@ -1,4 +1,4 @@
-import type { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import type { IUsersRepository } from "@acme/core/repositories/users.repository.interface";
 import { UsersRepository } from "@acme/core/infrastructure/repositories/users.repository";
 import { MockUsersRepository } from "@acme/core/infrastructure/repositories/users.repository.mock";
 import type { interfaces } from "inversify";

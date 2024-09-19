@@ -2,8 +2,8 @@ import "reflect-metadata";
 
 import { afterEach, beforeEach, expect, it } from "vitest";
 
-import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
-import { signOutUseCase } from "@acme/core/application/use-cases/auth/sign-out.use-case";
+import { signInUseCase } from "@acme/core/use-cases/auth/sign-in.use-case";
+import { signOutUseCase } from "@acme/core/use-cases/auth/sign-out.use-case";
 import { SESSION_COOKIE } from "@acme/core/config";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 

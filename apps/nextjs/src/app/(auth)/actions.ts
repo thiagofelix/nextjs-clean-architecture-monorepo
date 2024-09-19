@@ -14,9 +14,9 @@ import {
   UnauthenticatedError,
 } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { signInController } from "@acme/core/application/controllers/auth/sign-in.controller";
-import { signOutController } from "@acme/core/application/controllers/auth/sign-out.controller";
-import { signUpController } from "@acme/core/application/controllers/auth/sign-up.controller";
+import { signInController } from "@acme/core/controllers/auth/sign-in.controller";
+import { signOutController } from "@acme/core/controllers/auth/sign-out.controller";
+import { signUpController } from "@acme/core/controllers/auth/sign-up.controller";
 
 export async function signUp(formData: FormData) {
   return await withServerActionInstrumentation(

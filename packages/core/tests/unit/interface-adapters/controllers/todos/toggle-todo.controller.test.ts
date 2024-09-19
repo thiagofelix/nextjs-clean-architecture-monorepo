@@ -2,16 +2,16 @@ import "reflect-metadata";
 
 import { afterEach, beforeEach, expect, it } from "vitest";
 
-import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
-import { signOutUseCase } from "@acme/core/application/use-cases/auth/sign-out.use-case";
-import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
+import { signInUseCase } from "@acme/core/use-cases/auth/sign-in.use-case";
+import { signOutUseCase } from "@acme/core/use-cases/auth/sign-out.use-case";
+import { createTodoUseCase } from "@acme/core/use-cases/todos/create-todo.use-case";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import {
   UnauthenticatedError,
   UnauthorizedError,
 } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { toggleTodoController } from "@acme/core/application/controllers/todos/toggle-todo.controller";
+import { toggleTodoController } from "@acme/core/controllers/todos/toggle-todo.controller";
 
 beforeEach(() => {
   initializeContainer();

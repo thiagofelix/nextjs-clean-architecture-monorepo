@@ -1,5 +1,5 @@
-import type { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
-import { IAuthenticationService } from "@acme/core/application/services/authentication.service.interface";
+import type { IUsersRepository } from "@acme/core/repositories/users.repository.interface";
+import { IAuthenticationService } from "@acme/core/services/authentication.service.interface";
 import { SESSION_COOKIE } from "@acme/core/config";
 import { DI_SYMBOLS } from "@acme/core/di/types";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";

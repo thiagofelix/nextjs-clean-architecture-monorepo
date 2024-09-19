@@ -1,4 +1,4 @@
-import type { IAuthenticationService } from "@acme/core/application/services/authentication.service.interface";
+import type { IAuthenticationService } from "@acme/core/services/authentication.service.interface";
 import { AuthenticationService } from "@acme/core/infrastructure/services/authentication.service";
 import { MockAuthenticationService } from "@acme/core/infrastructure/services/authentication.service.mock";
 import type { interfaces } from "inversify";

@@ -2,11 +2,11 @@ import "reflect-metadata";
 
 import { afterEach, beforeEach, expect, it } from "vitest";
 
-import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
-import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
+import { signInUseCase } from "@acme/core/use-cases/auth/sign-in.use-case";
+import { createTodoUseCase } from "@acme/core/use-cases/todos/create-todo.use-case";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
-import { getTodosForUserController } from "@acme/core/application/controllers/todos/get-todos-for-user.controller";
+import { getTodosForUserController } from "@acme/core/controllers/todos/get-todos-for-user.controller";
 
 beforeEach(() => {
   initializeContainer();

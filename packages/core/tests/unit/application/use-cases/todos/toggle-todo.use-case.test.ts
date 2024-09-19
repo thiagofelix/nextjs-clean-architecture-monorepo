@@ -2,10 +2,10 @@ import "reflect-metadata";
 
 import { afterEach, beforeEach, expect, it } from "vitest";
 
-import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
-import { signOutUseCase } from "@acme/core/application/use-cases/auth/sign-out.use-case";
-import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
-import { toggleTodoUseCase } from "@acme/core/application/use-cases/todos/toggle-todo.use-case";
+import { signInUseCase } from "@acme/core/use-cases/auth/sign-in.use-case";
+import { signOutUseCase } from "@acme/core/use-cases/auth/sign-out.use-case";
+import { createTodoUseCase } from "@acme/core/use-cases/todos/create-todo.use-case";
+import { toggleTodoUseCase } from "@acme/core/use-cases/todos/toggle-todo.use-case";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { UnauthorizedError } from "@acme/core/entities/errors/auth";
 import { NotFoundError } from "@acme/core/entities/errors/common";

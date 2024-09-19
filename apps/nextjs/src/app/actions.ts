@@ -13,8 +13,8 @@ import {
   InputParseError,
   NotFoundError,
 } from "@acme/core/entities/errors/common";
-import { createTodoController } from "@acme/core/application/controllers/todos/create-todo.controller";
-import { toggleTodoController } from "@acme/core/application/controllers/todos/toggle-todo.controller";
+import { createTodoController } from "@acme/core/controllers/todos/create-todo.controller";
+import { toggleTodoController } from "@acme/core/controllers/todos/toggle-todo.controller";
 
 export async function createTodo(formData: FormData) {
   return await withServerActionInstrumentation(

@@ -1,4 +1,4 @@
-import { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import { IUsersRepository } from "@acme/core/repositories/users.repository.interface";
 import { User } from "@acme/core/entities/models/user";
 import { hashSync } from "@node-rs/argon2";
 import { injectable } from "inversify";

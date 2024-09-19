@@ -1,4 +1,4 @@
-import { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import { IUsersRepository } from "@acme/core/repositories/users.repository.interface";
 import { DatabaseOperationError } from "@acme/core/entities/errors/common";
 import { User } from "@acme/core/entities/models/user";
 import { captureException, startSpan } from "@sentry/nextjs";

@@ -1,4 +1,4 @@
-import { toggleTodoUseCase } from "@acme/core/application/use-cases/todos/toggle-todo.use-case";
+import { toggleTodoUseCase } from "@acme/core/use-cases/todos/toggle-todo.use-case";
 import { getInjection } from "@acme/core/di/container";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";

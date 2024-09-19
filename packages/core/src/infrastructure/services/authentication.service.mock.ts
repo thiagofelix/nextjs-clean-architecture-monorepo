@@ -1,4 +1,6 @@
-import type {IUsersRepository} from "@acme/core/application/repositories/users.repository.interface";
+import { inject, injectable } from "inversify";
+
+import type { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
 import { IAuthenticationService } from "@acme/core/application/services/authentication.service.interface";
 import { SESSION_COOKIE } from "@acme/core/config";
 import { DI_SYMBOLS } from "@acme/core/di/types";
@@ -6,7 +8,6 @@ import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
 import { Cookie } from "@acme/core/entities/models/cookie";
 import { Session, sessionSchema } from "@acme/core/entities/models/session";
 import { User } from "@acme/core/entities/models/user";
-import { inject, injectable } from "inversify";
 
 @injectable()
 export class MockAuthenticationService implements IAuthenticationService {
@@ -24,18 +25,20 @@ export class MockAuthenticationService implements IAuthenticationService {
   ): Promise<{ user: User; session: Session }> {
     const result = this._sessions[sessionId] ?? { user: null, session: null };
 
-    if (!result.user || !result.session) {
+    if (!result.user) {
       throw new UnauthenticatedError("Unauthenticated");
     }
 
     const user = await this._usersRepository.getUser(result.user.id);
 
-    return { user: user!, session: result.session };
+    if (!user) {
+      throw new UnauthenticatedError("Unauthenticated");
+    }
+
+    return { user, session: result.session };
   }
 
-  async createSession(
-    user: User,
-  ): Promise<{ session: Session; cookie: Cookie }> {
+  createSession(user: User): Promise<{ session: Session; cookie: Cookie }> {
     const luciaSession: Session = {
       id: "random_session_id",
       userId: user.id,
@@ -50,7 +53,7 @@ export class MockAuthenticationService implements IAuthenticationService {
 
     this._sessions[session.id] = { session, user };
 
-    return { session, cookie };
+    return Promise.resolve({ session, cookie });
   }
 
   async invalidateSession(sessionId: string): Promise<{ blankCookie: Cookie }> {

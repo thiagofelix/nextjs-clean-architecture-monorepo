@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { captureException, startSpan } from "@sentry/nextjs";
 
-import type { Todo } from "@acme/core/entities/models/todo";
 import { SESSION_COOKIE } from "@acme/core/config";
 import {
   AuthenticationError,
@@ -42,12 +41,7 @@ async function getTodos(sessionId: string | undefined) {
 export default async function Home() {
   const sessionId = cookies().get(SESSION_COOKIE)?.value;
 
-  let todos: Todo[];
-  try {
-    todos = await getTodos(sessionId);
-  } catch (err) {
-    throw err;
-  }
+  const todos = await getTodos(sessionId);
 
   return (
     <Card className="w-full max-w-lg">

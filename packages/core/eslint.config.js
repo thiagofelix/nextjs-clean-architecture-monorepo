@@ -1,4 +1,13 @@
-import baseConfig, { restrictEnvAccess } from "@acme/eslint-config/base";
+import baseConfig from "@acme/eslint-config/base";
+import vitestConfig from "@acme/eslint-config/vitest";
 
 /** @type {import('typescript-eslint').Config} */
-export default [...baseConfig, ...restrictEnvAccess];
+export default [
+  ...baseConfig,
+  ...vitestConfig,
+  {
+    rules: {
+      "@typescript-eslint/no-floating-promises": "off",
+    },
+  },
+];

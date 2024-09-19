@@ -15,12 +15,10 @@ export function Todos({
 }) {
   const handleToggle = useCallback(async (id: number) => {
     const res = await toggleTodo(id);
-    if (res) {
-      if (res.error) {
-        toast.error(res.error);
-      } else if (res.success) {
-        toast.success("Todo toggled!");
-      }
+    if (res.error) {
+      toast.error(res.error);
+    } else if (res.success) {
+      toast.success("Todo toggled!");
     }
   }, []);
 

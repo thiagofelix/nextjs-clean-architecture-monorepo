@@ -18,15 +18,13 @@ export function CreateTodo() {
     const formData = new FormData(event.currentTarget);
     const res = await createTodo(formData);
 
-    if (res) {
-      if (res.error) {
-        toast.error(res.error);
-      } else if (res.success) {
-        toast.success("Todo created!");
+    if (res.error) {
+      toast.error(res.error);
+    } else if (res.success) {
+      toast.success("Todo created!");
 
-        if (inputRef.current) {
-          inputRef.current.value = "";
-        }
+      if (inputRef.current) {
+        inputRef.current.value = "";
       }
     }
   };

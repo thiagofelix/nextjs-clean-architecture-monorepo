@@ -46,5 +46,10 @@
     }
   },
   "globalEnv": ["PORT", "DATABASE_URL", "DATABASE_AUTH_TOKEN"],
-  "globalPassThroughEnv": ["NODE_ENV", "CI", "npm_lifecycle_event"]
+  "globalPassThroughEnv": [
+    "NODE_ENV",
+    "NEXT_RUNTIME",
+    "CI",
+    "npm_lifecycle_event"
+  ]
 }

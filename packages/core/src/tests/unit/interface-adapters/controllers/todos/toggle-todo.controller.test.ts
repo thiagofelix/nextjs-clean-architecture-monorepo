@@ -1,5 +1,7 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
 import { signOutUseCase } from "@acme/core/application/use-cases/auth/sign-out.use-case";
 import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
@@ -10,7 +12,6 @@ import {
 } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
 import { toggleTodoController } from "@acme/core/interface-adapters/controllers/todos/toggle-todo.controller";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -58,7 +59,7 @@ it("throws for invalid input", async () => {
     password: "password-one",
   });
 
-  // @ts-ignore
+  // @ts-expect-error Testing invalid input
   expect(toggleTodoController(undefined, session.id)).rejects.toBeInstanceOf(
     InputParseError,
   );

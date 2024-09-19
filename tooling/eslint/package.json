@@ -6,7 +6,8 @@
   "exports": {
     "./base": "./base.js",
     "./nextjs": "./nextjs.js",
-    "./react": "./react.js"
+    "./react": "./react.js",
+    "./vitest": "./vitest.js"
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo node_modules",
@@ -27,6 +28,7 @@
     "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
     "eslint": "catalog:",
+    "eslint-plugin-vitest": "^0.5.4",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },

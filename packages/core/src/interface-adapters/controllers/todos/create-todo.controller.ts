@@ -1,10 +1,11 @@
+import { startSpan } from "@sentry/nextjs";
+import { z } from "zod";
+
+import type { Todo } from "@acme/core/entities/models/todo";
 import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
 import { getInjection } from "@acme/core/di/container";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import type { Todo } from "@acme/core/entities/models/todo";
-import { startSpan } from "@sentry/nextjs";
-import { z } from "zod";
 
 function presenter(todo: Todo) {
   return startSpan({ name: "createTodo Presenter", op: "serialize" }, () => {
@@ -20,7 +21,7 @@ function presenter(todo: Todo) {
 const inputSchema = z.object({ todo: z.string().min(1) });
 
 export async function createTodoController(
-  input: any,
+  input: unknown,
   sessionId: string | undefined,
 ): Promise<ReturnType<typeof presenter>> {
   return await startSpan(

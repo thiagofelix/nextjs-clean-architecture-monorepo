@@ -10,6 +10,6 @@
     "emitDecoratorMetadata": true,
     "emitDeclarationOnly": false
   },
-  "include": ["**/*.ts", "src"],
-  "exclude": ["node_modules", "vitest.config.ts", "tests"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

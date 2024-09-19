@@ -1,5 +1,7 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import {
   destroyContainer,
   getInjection,
@@ -8,7 +10,6 @@ import {
 import { MockTodosRepository } from "@acme/core/infrastructure/repositories/todos.repository.mock";
 import { MockUsersRepository } from "@acme/core/infrastructure/repositories/users.repository.mock";
 import { MockAuthenticationService } from "@acme/core/infrastructure/services/authentication.service.mock";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -18,7 +19,7 @@ afterEach(() => {
   destroyContainer();
 });
 
-it("should use Mock versions of repos and services", async () => {
+it("should use Mock versions of repos and services", () => {
   const authService = getInjection("IAuthenticationService");
   expect(authService).toBeInstanceOf(MockAuthenticationService);
 

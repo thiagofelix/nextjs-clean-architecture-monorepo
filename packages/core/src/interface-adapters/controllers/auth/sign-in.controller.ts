@@ -1,9 +1,8 @@
-import { z } from "zod";
+import type { Cookie } from "@acme/core/entities/models/cookie";
+import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
+import { InputParseError } from "@acme/core/entities/errors/common";
 import { startSpan } from "@sentry/nextjs";
-
-import { signInUseCase } from "@/src/application/use-cases/auth/sign-in.use-case";
-import { InputParseError } from "@/src/entities/errors/common";
-import { Cookie } from "@/src/entities/models/cookie";
+import { z } from "zod";
 
 const inputSchema = z.object({
   username: z.string().min(3).max(31),

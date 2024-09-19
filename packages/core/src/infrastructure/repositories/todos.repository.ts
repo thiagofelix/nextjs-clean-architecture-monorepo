@@ -1,12 +1,12 @@
+import { ITodosRepository } from "@acme/core/application/repositories/todos.repository.interface";
+import { DatabaseOperationError } from "@acme/core/entities/errors/common";
+import { Todo, TodoInsert } from "@acme/core/entities/models/todo";
+import { captureException, startSpan } from "@sentry/nextjs";
 import { eq } from "drizzle-orm";
 import { injectable } from "inversify";
-import { startSpan, captureException } from "@sentry/nextjs";
 
-import { db } from "@/drizzle";
-import { todos } from "@/drizzle/schema";
-import { ITodosRepository } from "@/src/application/repositories/todos.repository.interface";
-import { DatabaseOperationError } from "@/src/entities/errors/common";
-import { TodoInsert, Todo } from "@/src/entities/models/todo";
+import { db } from "@acme/db";
+import { todos } from "@acme/db/schema";
 
 @injectable()
 export class TodosRepository implements ITodosRepository {
@@ -108,6 +108,11 @@ export class TodosRepository implements ITodosRepository {
             },
             () => query.execute(),
           );
+
+          if (!updated) {
+            throw new DatabaseOperationError("Cannot update todo");
+          }
+
           return updated;
         } catch (err) {
           captureException(err);

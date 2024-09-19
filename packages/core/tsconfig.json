@@ -1,6 +1,15 @@
 {
   "extends": "@acme/tsconfig/internal-package.json",
-  "compilerOptions": {},
-  "include": ["*.ts", "src"],
-  "exclude": ["node_modules"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@acme/core/*": ["./src/*"]
+    },
+    "types": ["reflect-metadata"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "emitDeclarationOnly": false
+  },
+  "include": ["**/*.ts", "src"],
+  "exclude": ["node_modules", "vitest.config.ts", "tests"]
 }

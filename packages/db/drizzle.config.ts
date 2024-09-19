@@ -1,13 +1,17 @@
-import type { Config } from "drizzle-kit";
+import { fileURLToPath } from "url";
+import { defineConfig } from "drizzle-kit";
+import createJiti from "jiti";
 
-if (!process.env.POSTGRES_URL) {
-  throw new Error("Missing POSTGRES_URL");
-}
+// Import env files to validate at build time. Use jiti so we can load .ts files in here.
+createJiti(fileURLToPath(import.meta.url))("./src/env");
 
-const nonPoolingUrl = process.env.POSTGRES_URL.replace(":6543", ":5432");
-
-export default {
+export default defineConfig({
+  driver: "turso",
+  dialect: "sqlite",
   schema: "./src/schema.ts",
-  dialect: "postgresql",
-  dbCredentials: { url: nonPoolingUrl },
-} satisfies Config;
+  out: "./src/migrations",
+  dbCredentials: {
+    url: process.env.DATABASE_URL!,
+    authToken: process.env.DATABASE_AUTH_TOKEN!,
+  },
+});

@@ -1,10 +1,11 @@
-import { Container } from "inversify";
 import { startSpan } from "@sentry/nextjs";
+import { Container } from "inversify";
 
+import type { DI_RETURN_TYPES } from "./types";
 import { AuthenticationModule } from "./modules/authentication.module";
 import { TodosModule } from "./modules/todos.module";
-import { DI_RETURN_TYPES, DI_SYMBOLS } from "./types";
 import { UsersModule } from "./modules/users.module";
+import { DI_SYMBOLS } from "./types";
 
 const ApplicationContainer = new Container({
   defaultScope: "Singleton",

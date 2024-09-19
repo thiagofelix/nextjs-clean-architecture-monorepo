@@ -1,8 +1,7 @@
+import { IAuthenticationService } from "@acme/core/application/services/authentication.service.interface";
+import { AuthenticationService } from "@acme/core/infrastructure/services/authentication.service";
+import { MockAuthenticationService } from "@acme/core/infrastructure/services/authentication.service.mock";
 import { ContainerModule, interfaces } from "inversify";
-
-import { IAuthenticationService } from "@/src/application/services/authentication.service.interface";
-import { AuthenticationService } from "@/src/infrastructure/services/authentication.service";
-import { MockAuthenticationService } from "@/src/infrastructure/services/authentication.service.mock";
 
 import { DI_SYMBOLS } from "../types";
 

@@ -1,11 +1,10 @@
-import { z } from "zod";
+import { toggleTodoUseCase } from "@acme/core/application/use-cases/todos/toggle-todo.use-case";
+import { getInjection } from "@acme/core/di/container";
+import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
+import { InputParseError } from "@acme/core/entities/errors/common";
+import { Todo } from "@acme/core/entities/models/todo";
 import { startSpan } from "@sentry/nextjs";
-
-import { getInjection } from "@/di/container";
-import { toggleTodoUseCase } from "@/src/application/use-cases/todos/toggle-todo.use-case";
-import { UnauthenticatedError } from "@/src/entities/errors/auth";
-import { InputParseError } from "@/src/entities/errors/common";
-import { Todo } from "@/src/entities/models/todo";
+import { z } from "zod";
 
 function presenter(todo: Todo) {
   return startSpan({ name: "toggleTodo Presenter", op: "serialize" }, () => ({

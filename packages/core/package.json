@@ -4,27 +4,39 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./**": {
+      "types": "./dist/**/*.d.ts",
+      "default": "./dist/**/*.js"
+    }
   },
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "test": "vitest"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:*",
     "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
+    "@vitest/coverage-istanbul": "^2.0.5",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vite-plugin-env-compatible": "^2.0.1",
+    "vitest": "^2.0.5"
   },
   "prettier": "@acme/prettier-config",
   "dependencies": {
+    "@acme/db": "workspace:*",
+    "@sentry/nextjs": "^8.30.0",
     "inversify": "^6.0.2",
     "reflect-metadata": "^0.2.2"
   }

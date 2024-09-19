@@ -1,13 +1,12 @@
+import { type IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import { IAuthenticationService } from "@acme/core/application/services/authentication.service.interface";
+import { SESSION_COOKIE } from "@acme/core/config";
+import { DI_SYMBOLS } from "@acme/core/di/types";
+import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
+import { Cookie } from "@acme/core/entities/models/cookie";
+import { Session, sessionSchema } from "@acme/core/entities/models/session";
+import { User } from "@acme/core/entities/models/user";
 import { inject, injectable } from "inversify";
-
-import { IAuthenticationService } from "@/src/application/services/authentication.service.interface";
-import { UnauthenticatedError } from "@/src/entities/errors/auth";
-import { User } from "@/src/entities/models/user";
-import { Session, sessionSchema } from "@/src/entities/models/session";
-import { type IUsersRepository } from "@/src/application/repositories/users.repository.interface";
-import { Cookie } from "@/src/entities/models/cookie";
-import { DI_SYMBOLS } from "@/di/types";
-import { SESSION_COOKIE } from "@/config";
 
 @injectable()
 export class MockAuthenticationService implements IAuthenticationService {

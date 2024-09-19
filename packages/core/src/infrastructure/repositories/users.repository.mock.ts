@@ -1,5 +1,5 @@
-import { IUsersRepository } from "@/src/application/repositories/users.repository.interface";
-import { User } from "@/src/entities/models/user";
+import { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import { User } from "@acme/core/entities/models/user";
 import { hashSync } from "@node-rs/argon2";
 import { injectable } from "inversify";
 
@@ -34,16 +34,16 @@ export class MockUsersRepository implements IUsersRepository {
     ];
   }
 
-  async getUser(id: string): Promise<User | undefined> {
+  getUser(id: string): Promise<User | undefined> {
     const user = this._users.find((u) => u.id === id);
-    return user;
+    return Promise.resolve(user);
   }
-  async getUserByUsername(username: string): Promise<User | undefined> {
+  getUserByUsername(username: string): Promise<User | undefined> {
     const user = this._users.find((u) => u.username === username);
-    return user;
+    return Promise.resolve(user);
   }
-  async createUser(input: User): Promise<User> {
+  createUser(input: User): Promise<User> {
     this._users.push(input);
-    return input;
+    return Promise.resolve(input);
   }
 }

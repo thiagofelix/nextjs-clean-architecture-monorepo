@@ -1,8 +1,7 @@
+import { ITodosRepository } from "@acme/core/application/repositories/todos.repository.interface";
+import { TodosRepository } from "@acme/core/infrastructure/repositories/todos.repository";
+import { MockTodosRepository } from "@acme/core/infrastructure/repositories/todos.repository.mock";
 import { ContainerModule, interfaces } from "inversify";
-
-import { ITodosRepository } from "@/src/application/repositories/todos.repository.interface";
-import { TodosRepository } from "@/src/infrastructure/repositories/todos.repository";
-import { MockTodosRepository } from "@/src/infrastructure/repositories/todos.repository.mock";
 
 import { DI_SYMBOLS } from "../types";
 

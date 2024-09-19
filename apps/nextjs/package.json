@@ -14,7 +14,7 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@acme/auth": "workspace:*",
+    "@acme/core": "workspace:*",
     "@acme/db": "workspace:*",
     "@acme/ui": "workspace:*",
     "@acme/validators": "workspace:*",
@@ -25,6 +25,7 @@
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "superjson": "2.2.1",
+    "webpack": "^5.94.0",
     "zod": "catalog:"
   },
   "devDependencies": {

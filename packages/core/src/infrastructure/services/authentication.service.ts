@@ -1,16 +1,16 @@
+import type { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import { IAuthenticationService } from "@acme/core/application/services/authentication.service.interface";
+import { SESSION_COOKIE } from "@acme/core/config";
+import { DI_SYMBOLS } from "@acme/core/di/types";
+import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
+import { Cookie } from "@acme/core/entities/models/cookie";
+import { Session, sessionSchema } from "@acme/core/entities/models/session";
+import { User } from "@acme/core/entities/models/user";
 import { startSpan } from "@sentry/nextjs";
 import { inject, injectable } from "inversify";
 import { generateIdFromEntropySize, Lucia } from "lucia";
 
-import { SESSION_COOKIE } from "@/config";
-import { DI_SYMBOLS } from "@/di/types";
-import { luciaAdapter } from "@/drizzle";
-import { type IUsersRepository } from "@/src/application/repositories/users.repository.interface";
-import { IAuthenticationService } from "@/src/application/services/authentication.service.interface";
-import { UnauthenticatedError } from "@/src/entities/errors/auth";
-import { Cookie } from "@/src/entities/models/cookie";
-import { Session, sessionSchema } from "@/src/entities/models/session";
-import { User } from "@/src/entities/models/user";
+import { luciaAdapter } from "@acme/db";
 
 @injectable()
 export class AuthenticationService implements IAuthenticationService {
@@ -47,7 +47,7 @@ export class AuthenticationService implements IAuthenticationService {
           () => this._lucia.validateSession(sessionId),
         );
 
-        if (!result.user || !result.session) {
+        if (!result.user) {
           throw new UnauthenticatedError("Unauthenticated");
         }
 

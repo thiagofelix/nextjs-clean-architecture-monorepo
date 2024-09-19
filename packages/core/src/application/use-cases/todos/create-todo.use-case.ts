@@ -1,7 +1,6 @@
+import type { Todo } from "@acme/core/entities/models/todo";
+import { getInjection } from "@acme/core/di/container";
 import { startSpan } from "@sentry/nextjs";
-
-import { getInjection } from "@/di/container";
-import type { Todo } from "@/src/entities/models/todo";
 
 export function createTodoUseCase(
   input: {

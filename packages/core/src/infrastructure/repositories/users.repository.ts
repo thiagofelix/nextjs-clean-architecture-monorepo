@@ -1,12 +1,12 @@
+import { IUsersRepository } from "@acme/core/application/repositories/users.repository.interface";
+import { DatabaseOperationError } from "@acme/core/entities/errors/common";
+import { User } from "@acme/core/entities/models/user";
+import { captureException, startSpan } from "@sentry/nextjs";
 import { eq } from "drizzle-orm";
 import { injectable } from "inversify";
-import { startSpan, captureException } from "@sentry/nextjs";
 
-import { db } from "@/drizzle";
-import { users } from "@/drizzle/schema";
-import { IUsersRepository } from "@/src/application/repositories/users.repository.interface";
-import { DatabaseOperationError } from "@/src/entities/errors/common";
-import { User } from "@/src/entities/models/user";
+import { db } from "@acme/db";
+import { users } from "@acme/db/schema";
 
 @injectable()
 export class UsersRepository implements IUsersRepository {

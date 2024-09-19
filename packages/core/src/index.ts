@@ -1,1 +1,1 @@
-export const name = 'core';
+export type { Todo } from "@acme/core/entities/models/todo";

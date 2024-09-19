@@ -1,9 +1,8 @@
+import { getTodosForUserUseCase } from "@acme/core/application/use-cases/todos/get-todos-for-user.use-case";
+import { getInjection } from "@acme/core/di/container";
+import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
+import { Todo } from "@acme/core/entities/models/todo";
 import { startSpan } from "@sentry/nextjs";
-
-import { getInjection } from "@/di/container";
-import { getTodosForUserUseCase } from "@/src/application/use-cases/todos/get-todos-for-user.use-case";
-import { UnauthenticatedError } from "@/src/entities/errors/auth";
-import { Todo } from "@/src/entities/models/todo";
 
 function presenter(todos: Todo[]) {
   return startSpan({ name: "getTodosForUser Presenter", op: "serialize" }, () =>

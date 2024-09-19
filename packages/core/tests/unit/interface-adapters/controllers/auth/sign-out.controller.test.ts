@@ -1,11 +1,12 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
 import { SESSION_COOKIE } from "@acme/core/config";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { InputParseError } from "@acme/core/entities/errors/common";
 import { signOutController } from "@acme/core/interface-adapters/controllers/auth/sign-out.controller";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -23,13 +24,15 @@ it("returns blank cookie", async () => {
     password: "password-one",
   });
 
-  expect(signOutController(session.id)).resolves.toMatchObject({
+  await expect(signOutController(session.id)).resolves.toMatchObject({
     name: SESSION_COOKIE,
     value: "",
     attributes: {},
   });
 });
 
-it("throws for invalid input", () => {
-  expect(signOutController(undefined)).rejects.toBeInstanceOf(InputParseError);
+it("throws for invalid input", async () => {
+  await expect(signOutController(undefined)).rejects.toBeInstanceOf(
+    InputParseError,
+  );
 });

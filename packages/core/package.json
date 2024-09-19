@@ -5,12 +5,12 @@
   "type": "module",
   "exports": {
     "./*": {
-      "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
+      "types": "./dist/src/*.d.ts",
+      "default": "./src/*.js"
     },
     "./**": {
-      "types": "./dist/**/*.d.ts",
-      "default": "./dist/**/*.js"
+      "types": "./dist/src/**/*.d.ts",
+      "default": "./src/**/*.js"
     }
   },
   "license": "MIT",

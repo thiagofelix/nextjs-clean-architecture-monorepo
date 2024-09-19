@@ -8,8 +8,8 @@
     "types": ["reflect-metadata"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": true
   },
-  "include": ["src"],
+  "include": ["src", "tests"],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,10 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { signUpUseCase } from "@acme/core/application/use-cases/auth/sign-up.use-case";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { AuthenticationError } from "@acme/core/entities/errors/auth";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -25,8 +26,8 @@ it("returns session and cookie", async () => {
   expect(result).toHaveProperty("user");
 });
 
-it("throws for invalid input", () => {
-  expect(() =>
+it("throws for invalid input", async () => {
+  await expect(() =>
     signUpUseCase({ username: "one", password: "doesntmatter" }),
   ).rejects.toBeInstanceOf(AuthenticationError);
 });

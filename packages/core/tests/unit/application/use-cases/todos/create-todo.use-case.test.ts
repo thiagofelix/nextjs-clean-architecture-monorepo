@@ -1,9 +1,10 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
 import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -21,7 +22,7 @@ it("creates todo", async () => {
     password: "password-one",
   });
 
-  expect(
+  await expect(
     createTodoUseCase({ todo: "Write unit tests" }, session.userId),
   ).resolves.toMatchObject({
     todo: "Write unit tests",

@@ -59,11 +59,11 @@ it("throws for invalid input", async () => {
     password: "password-one",
   });
 
-  // @ts-expect-error Testing invalid input
-  expect(toggleTodoController(undefined, session.id)).rejects.toBeInstanceOf(
-    InputParseError,
-  );
-  expect(toggleTodoController({}, session.id)).rejects.toBeInstanceOf(
+  await expect(
+    // @ts-expect-error Testing invalid input
+    toggleTodoController(undefined, session.id),
+  ).rejects.toBeInstanceOf(InputParseError);
+  await expect(toggleTodoController({}, session.id)).rejects.toBeInstanceOf(
     InputParseError,
   );
 });
@@ -82,12 +82,12 @@ it("throws when unauthenticated", async () => {
   await signOutUseCase(session.id);
 
   // with valid session id, but expired session
-  expect(
+  await expect(
     toggleTodoController({ todoId: todo.id }, session.id),
   ).rejects.toBeInstanceOf(UnauthenticatedError);
 
   // with undefined session id
-  expect(
+  await expect(
     toggleTodoController({ todoId: todo.id }, undefined),
   ).rejects.toBeInstanceOf(UnauthenticatedError);
 });
@@ -110,7 +110,7 @@ it("throws when unauthorized", async () => {
     password: "password-two",
   });
 
-  expect(
+  await expect(
     toggleTodoController({ todoId: todo.id }, sessionTwo.id),
   ).rejects.toBeInstanceOf(UnauthorizedError);
 });

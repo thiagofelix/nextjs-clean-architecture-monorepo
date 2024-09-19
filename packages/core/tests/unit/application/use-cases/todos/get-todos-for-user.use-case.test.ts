@@ -1,11 +1,11 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
 import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
+import { getTodosForUserUseCase } from "@acme/core/application/use-cases/todos/get-todos-for-user.use-case";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
-import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
-import { getTodosForUserController } from "@acme/core/interface-adapters/controllers/todos/get-todos-for-user.controller";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -17,44 +17,32 @@ afterEach(() => {
 
 // A great guide on test names
 // https://www.epicweb.dev/talks/how-to-write-better-test-names
-it("returns users todos", async () => {
+it("returns todos", async () => {
   const { session } = await signInUseCase({
     username: "one",
     password: "password-one",
   });
-
-  await expect(getTodosForUserController(session.id)).resolves.toMatchObject(
-    [],
-  );
+  await expect(getTodosForUserUseCase(session.userId)).resolves.toHaveLength(0);
 
   await createTodoUseCase({ todo: "todo-one" }, session.userId);
   await createTodoUseCase({ todo: "todo-two" }, session.userId);
   await createTodoUseCase({ todo: "todo-three" }, session.userId);
 
-  await expect(getTodosForUserController(session.id)).resolves.toMatchObject([
+  await expect(getTodosForUserUseCase(session.userId)).resolves.toMatchObject([
     {
       todo: "todo-one",
-      completed: false,
       userId: "1",
+      completed: false,
     },
     {
       todo: "todo-two",
-      completed: false,
       userId: "1",
+      completed: false,
     },
     {
       todo: "todo-three",
-      completed: false,
       userId: "1",
+      completed: false,
     },
   ]);
-});
-
-it("throws when unauthenticated", () => {
-  expect(getTodosForUserController("")).rejects.toBeInstanceOf(
-    UnauthenticatedError,
-  );
-  expect(getTodosForUserController(undefined)).rejects.toBeInstanceOf(
-    UnauthenticatedError,
-  );
 });

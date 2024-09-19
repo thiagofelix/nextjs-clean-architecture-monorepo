@@ -1,5 +1,7 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
 import { signOutUseCase } from "@acme/core/application/use-cases/auth/sign-out.use-case";
 import { createTodoUseCase } from "@acme/core/application/use-cases/todos/create-todo.use-case";
@@ -7,7 +9,6 @@ import { toggleTodoUseCase } from "@acme/core/application/use-cases/todos/toggle
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { UnauthorizedError } from "@acme/core/entities/errors/auth";
 import { NotFoundError } from "@acme/core/entities/errors/common";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -30,7 +31,7 @@ it("toggles todo", async () => {
     session.userId,
   );
 
-  expect(
+  await expect(
     toggleTodoUseCase({ todoId: todo.id }, session.userId),
   ).resolves.toMatchObject({
     todo: "Write unit tests",
@@ -57,7 +58,7 @@ it("throws when unauthorized", async () => {
     password: "password-two",
   });
 
-  expect(
+  await expect(
     toggleTodoUseCase({ todoId: todo.id }, sessionTwo.userId),
   ).rejects.toBeInstanceOf(UnauthorizedError);
 });
@@ -68,7 +69,7 @@ it("throws for invalid input", async () => {
     password: "password-one",
   });
 
-  expect(
+  await expect(
     toggleTodoUseCase({ todoId: 1234567890 }, session.userId),
   ).rejects.toBeInstanceOf(NotFoundError);
 });

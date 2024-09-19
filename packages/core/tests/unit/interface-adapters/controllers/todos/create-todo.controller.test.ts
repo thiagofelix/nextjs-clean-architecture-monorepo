@@ -1,11 +1,12 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use-case";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
 import { createTodoController } from "@acme/core/interface-adapters/controllers/todos/create-todo.controller";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -23,7 +24,7 @@ it("creates todo", async () => {
     password: "password-one",
   });
 
-  expect(
+  await expect(
     createTodoController({ todo: "Test application" }, session.id),
   ).resolves.toMatchObject({
     todo: "Test application",
@@ -38,17 +39,17 @@ it("throws for invalid input", async () => {
     password: "password-one",
   });
 
-  expect(createTodoController({}, session.id)).rejects.toBeInstanceOf(
+  await expect(createTodoController({}, session.id)).rejects.toBeInstanceOf(
     InputParseError,
   );
 
-  expect(createTodoController({ todo: "" }, session.id)).rejects.toBeInstanceOf(
-    InputParseError,
-  );
+  await expect(
+    createTodoController({ todo: "" }, session.id),
+  ).rejects.toBeInstanceOf(InputParseError);
 });
 
-it("throws for unauthenticated", () => {
-  expect(
+it("throws for unauthenticated", async () => {
+  await expect(
     createTodoController({ todo: "Doesn't matter" }, undefined),
   ).rejects.toBeInstanceOf(UnauthenticatedError);
 });

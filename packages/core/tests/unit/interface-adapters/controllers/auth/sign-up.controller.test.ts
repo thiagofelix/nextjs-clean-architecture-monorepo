@@ -1,11 +1,12 @@
 import "reflect-metadata";
 
+import { afterEach, beforeEach, expect, it } from "vitest";
+
 import { SESSION_COOKIE } from "@acme/core/config";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { AuthenticationError } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
 import { signUpController } from "@acme/core/interface-adapters/controllers/auth/sign-up.controller";
-import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -32,12 +33,12 @@ it("returns cookie", async () => {
   });
 });
 
-it("throws for invalid input", () => {
+it("throws for invalid input", async () => {
   // empty object
-  expect(signUpController({})).rejects.toBeInstanceOf(InputParseError);
+  await expect(signUpController({})).rejects.toBeInstanceOf(InputParseError);
 
   // below min length
-  expect(
+  await expect(
     signUpController({
       username: "no",
       password: "no",
@@ -46,7 +47,7 @@ it("throws for invalid input", () => {
   ).rejects.toBeInstanceOf(InputParseError);
 
   // wrong passwords
-  expect(
+  await expect(
     signUpController({
       username: "nikolovlazar",
       password: "password",
@@ -55,8 +56,8 @@ it("throws for invalid input", () => {
   ).rejects.toBeInstanceOf(InputParseError);
 });
 
-it("throws for existing username", () => {
-  expect(
+it("throws for existing username", async () => {
+  await expect(
     signUpController({
       username: "one",
       password: "doesntmatter",

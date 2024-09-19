@@ -6,7 +6,7 @@ export default defineConfig({
   test: {
     coverage: {
       provider: "istanbul",
-      reportsDirectory: "./src/tests/coverage",
+      reportsDirectory: "./tests/coverage",
     },
   },
   plugins: [env()],

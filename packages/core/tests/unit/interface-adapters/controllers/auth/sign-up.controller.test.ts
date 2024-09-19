@@ -6,7 +6,7 @@ import { SESSION_COOKIE } from "@acme/core/config";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { AuthenticationError } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { signUpController } from "@acme/core/interface-adapters/controllers/auth/sign-up.controller";
+import { signUpController } from "@acme/core/application/controllers/auth/sign-up.controller";
 
 beforeEach(() => {
   initializeContainer();

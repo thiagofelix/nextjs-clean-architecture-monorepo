@@ -6,7 +6,7 @@ import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { createTodoController } from "@acme/core/interface-adapters/controllers/todos/create-todo.controller";
+import { createTodoController } from "@acme/core/application/controllers/todos/create-todo.controller";
 
 beforeEach(() => {
   initializeContainer();

@@ -6,11 +6,11 @@
   "exports": {
     "./*": {
       "types": "./dist/src/*.d.ts",
-      "default": "./src/*.js"
+      "default": "./dist/src/*.js"
     },
     "./**": {
       "types": "./dist/src/**/*.d.ts",
-      "default": "./src/**/*.js"
+      "default": "./dist/src/**/*.js"
     }
   },
   "license": "MIT",

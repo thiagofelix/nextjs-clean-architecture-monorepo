@@ -11,7 +11,7 @@ import {
   UnauthorizedError,
 } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { toggleTodoController } from "@acme/core/interface-adapters/controllers/todos/toggle-todo.controller";
+import { toggleTodoController } from "@acme/core/application/controllers/todos/toggle-todo.controller";
 
 beforeEach(() => {
   initializeContainer();

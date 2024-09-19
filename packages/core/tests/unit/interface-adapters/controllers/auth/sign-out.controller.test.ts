@@ -6,7 +6,7 @@ import { signInUseCase } from "@acme/core/application/use-cases/auth/sign-in.use
 import { SESSION_COOKIE } from "@acme/core/config";
 import { destroyContainer, initializeContainer } from "@acme/core/di/container";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { signOutController } from "@acme/core/interface-adapters/controllers/auth/sign-out.controller";
+import { signOutController } from "@acme/core/application/controllers/auth/sign-out.controller";
 
 beforeEach(() => {
   initializeContainer();

@@ -2,12 +2,12 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { captureException, startSpan } from "@sentry/nextjs";
 
+import { getTodosForUserController } from "@acme/core/application/controllers/todos/get-todos-for-user.controller";
 import { SESSION_COOKIE } from "@acme/core/config";
 import {
   AuthenticationError,
   UnauthenticatedError,
 } from "@acme/core/entities/errors/auth";
-import { getTodosForUserController } from "@acme/core/interface-adapters/controllers/todos/get-todos-for-user.controller";
 import { Card, CardContent, CardHeader, CardTitle } from "@acme/ui/card";
 import { Separator } from "@acme/ui/separator";
 

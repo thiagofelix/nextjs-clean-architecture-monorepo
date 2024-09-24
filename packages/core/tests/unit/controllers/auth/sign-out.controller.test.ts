@@ -2,11 +2,11 @@ import "reflect-metadata";
 
 import { afterEach, beforeEach, expect, it } from "vitest";
 
-import { signInUseCase } from "@acme/core/use-cases/auth/sign-in.use-case";
-import { SESSION_COOKIE } from "@acme/core/config";
-import { destroyContainer, initializeContainer } from "@acme/core/di/container";
-import { InputParseError } from "@acme/core/entities/errors/common";
-import { signOutController } from "@acme/core/controllers/auth/sign-out.controller";
+import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
+import { SESSION_COOKIE } from "#config";
+import { destroyContainer, initializeContainer } from "#di/container";
+import { InputParseError } from "#entities/errors/common";
+import { signOutController } from "#controllers/auth/sign-out.controller";
 
 beforeEach(() => {
   initializeContainer();

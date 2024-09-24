@@ -1,5 +1,5 @@
-import { getInjection } from "@acme/core/di/container";
-import type { Cookie } from "@acme/core/entities/models/cookie";
+import { getInjection } from "#di/container";
+import type { Cookie } from "#entities/models/cookie";
 import { startSpan } from "@sentry/nextjs";
 
 export function signOutUseCase(

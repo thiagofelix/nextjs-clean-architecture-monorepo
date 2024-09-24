@@ -1,4 +1,4 @@
-import type { Todo, TodoInsert } from "@acme/core/entities/models/todo";
+import type { Todo, TodoInsert } from "#entities/models/todo";
 
 export interface ITodosRepository {
   createTodo(todo: TodoInsert): Promise<Todo>;

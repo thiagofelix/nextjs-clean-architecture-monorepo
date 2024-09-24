@@ -1,5 +1,5 @@
-import { ITodosRepository } from "@acme/core/repositories/todos.repository.interface";
-import { Todo, TodoInsert } from "@acme/core/entities/models/todo";
+import { ITodosRepository } from "#repositories/todos.repository.interface";
+import { Todo, TodoInsert } from "#entities/models/todo";
 import { injectable } from "inversify";
 
 @injectable()

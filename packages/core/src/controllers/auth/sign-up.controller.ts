@@ -1,5 +1,5 @@
-import { signUpUseCase } from "@acme/core/use-cases/auth/sign-up.use-case";
-import { InputParseError } from "@acme/core/entities/errors/common";
+import { signUpUseCase } from "#use-cases/auth/sign-up.use-case";
+import { InputParseError } from "#entities/errors/common";
 import { startSpan } from "@sentry/nextjs";
 import { z } from "zod";
 

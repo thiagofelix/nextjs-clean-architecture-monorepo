@@ -1,6 +1,6 @@
-import type { IAuthenticationService } from "@acme/core/services/authentication.service.interface";
-import { AuthenticationService } from "@acme/core/infrastructure/services/authentication.service";
-import { MockAuthenticationService } from "@acme/core/infrastructure/services/authentication.service.mock";
+import type { IAuthenticationService } from "#services/authentication.service.interface";
+import { AuthenticationService } from "#infrastructure/services/authentication.service";
+import { MockAuthenticationService } from "#infrastructure/services/authentication.service.mock";
 import type { interfaces } from "inversify";
 import { ContainerModule } from "inversify";
 

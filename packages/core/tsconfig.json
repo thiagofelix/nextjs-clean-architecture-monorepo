@@ -1,15 +1,9 @@
 {
   "extends": "@acme/tsconfig/internal-package.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@acme/core/*": ["./src/*"]
-    },
-    "types": ["reflect-metadata"],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "emitDeclarationOnly": false
+    "rootDir": ".",
+    "types": ["reflect-metadata"]
   },
-  "include": ["src", "tests"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

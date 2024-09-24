@@ -1,6 +1,6 @@
-import type { Cookie } from "@acme/core/entities/models/cookie";
-import type { Session } from "@acme/core/entities/models/session";
-import type { User } from "@acme/core/entities/models/user";
+import type { Cookie } from "#entities/models/cookie";
+import type { Session } from "#entities/models/session";
+import type { User } from "#entities/models/user";
 
 export interface IAuthenticationService {
   generateUserId(): string;

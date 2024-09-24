@@ -3,27 +3,33 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "imports": {
+    "#*": [
+      "./dist/src/*.js",
+      "./dist/src/*.jsx"
+    ]
+  },
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./src/index.ts"
+      "types": "./dist/src/index.d.js",
+      "default": "./dist/src/index.js"
     },
     "./*": {
-      "types": "./dist/src/*.d.ts",
+      "types": "./dist/src/*.d.js",
       "default": [
-        "./src/*.ts",
-        "./src/*.tsx"
+        "./dist/src/*.js",
+        "./dist/src/*.jsx"
       ]
     }
   },
   "license": "MIT",
   "scripts": {
+    "dev": "tsc --watch",
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "typecheck": "tsc --noEmit",
     "ui-add": "pnpm dlx shadcn add && prettier src --write --list-different"
   },
   "dependencies": {

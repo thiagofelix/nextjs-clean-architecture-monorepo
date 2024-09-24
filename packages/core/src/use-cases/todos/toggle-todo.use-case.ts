@@ -1,7 +1,7 @@
-import type { Todo } from "@acme/core/entities/models/todo";
-import { getInjection } from "@acme/core/di/container";
-import { UnauthorizedError } from "@acme/core/entities/errors/auth";
-import { NotFoundError } from "@acme/core/entities/errors/common";
+import type { Todo } from "#entities/models/todo";
+import { getInjection } from "#di/container";
+import { UnauthorizedError } from "#entities/errors/auth";
+import { NotFoundError } from "#entities/errors/common";
 import { startSpan } from "@sentry/nextjs";
 
 export function toggleTodoUseCase(

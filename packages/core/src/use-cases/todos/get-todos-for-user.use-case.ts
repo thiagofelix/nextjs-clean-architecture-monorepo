@@ -1,5 +1,5 @@
-import type { Todo } from "@acme/core/entities/models/todo";
-import { getInjection } from "@acme/core/di/container";
+import type { Todo } from "#entities/models/todo";
+import { getInjection } from "#di/container";
 import { startSpan } from "@sentry/nextjs";
 
 export function getTodosForUserUseCase(userId: string): Promise<Todo[]> {

@@ -1,4 +1,4 @@
-import type { User } from "@acme/core/entities/models/user";
+import type { User } from "#entities/models/user";
 
 export interface IUsersRepository {
   getUser(id: string): Promise<User | undefined>;

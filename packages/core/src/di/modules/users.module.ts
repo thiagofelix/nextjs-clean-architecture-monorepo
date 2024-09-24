@@ -1,6 +1,6 @@
-import type { IUsersRepository } from "@acme/core/repositories/users.repository.interface";
-import { UsersRepository } from "@acme/core/infrastructure/repositories/users.repository";
-import { MockUsersRepository } from "@acme/core/infrastructure/repositories/users.repository.mock";
+import type { IUsersRepository } from "#repositories/users.repository.interface";
+import { UsersRepository } from "#infrastructure/repositories/users.repository";
+import { MockUsersRepository } from "#infrastructure/repositories/users.repository.mock";
 import type { interfaces } from "inversify";
 import { ContainerModule } from "inversify";
 

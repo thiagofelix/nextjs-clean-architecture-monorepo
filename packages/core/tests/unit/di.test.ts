@@ -6,10 +6,10 @@ import {
   destroyContainer,
   getInjection,
   initializeContainer,
-} from "@acme/core/di/container";
-import { MockTodosRepository } from "@acme/core/infrastructure/repositories/todos.repository.mock";
-import { MockUsersRepository } from "@acme/core/infrastructure/repositories/users.repository.mock";
-import { MockAuthenticationService } from "@acme/core/infrastructure/services/authentication.service.mock";
+} from "#di/container";
+import { MockTodosRepository } from "#infrastructure/repositories/todos.repository.mock";
+import { MockUsersRepository } from "#infrastructure/repositories/users.repository.mock";
+import { MockAuthenticationService } from "#infrastructure/services/authentication.service.mock";
 
 beforeEach(() => {
   initializeContainer();

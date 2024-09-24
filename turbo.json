@@ -6,7 +6,7 @@
       "dependsOn": ["^topo"]
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["topo"],
       "outputs": [".cache/tsbuildinfo.json", "dist/**"]
     },
     "dev": {
@@ -18,11 +18,11 @@
       "outputLogs": "new-only"
     },
     "lint": {
-      "dependsOn": ["^topo", "^build"],
+      "dependsOn": ["topo"],
       "outputs": [".cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["^topo", "^build"],
+      "dependsOn": ["topo"],
       "outputs": [".cache/tsbuildinfo.json"]
     },
     "test": {},

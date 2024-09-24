@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#*": "./src/*.ts"
+  },
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .cache .next .turbo node_modules",
@@ -23,7 +26,6 @@
     "next": "^14.2.5",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
-    "superjson": "2.2.1",
     "webpack": "^5.94.0",
     "zod": "catalog:"
   },

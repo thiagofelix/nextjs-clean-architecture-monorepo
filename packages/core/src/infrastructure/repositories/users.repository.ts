@@ -1,6 +1,6 @@
-import { IUsersRepository } from "@acme/core/repositories/users.repository.interface";
-import { DatabaseOperationError } from "@acme/core/entities/errors/common";
-import { User } from "@acme/core/entities/models/user";
+import { IUsersRepository } from "#repositories/users.repository.interface";
+import { DatabaseOperationError } from "#entities/errors/common";
+import { User } from "#entities/models/user";
 import { captureException, startSpan } from "@sentry/nextjs";
 import { eq } from "drizzle-orm";
 import { injectable } from "inversify";

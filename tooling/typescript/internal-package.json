@@ -4,7 +4,9 @@
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "noEmit": false,
     "outDir": "${configDir}/dist"
   }

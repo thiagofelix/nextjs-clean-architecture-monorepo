@@ -1,6 +1,6 @@
 "use client";
 
-import { signOut } from "@/app/(auth)/actions";
+import { signOut } from "#app/(auth)/actions";
 
 import { Avatar, AvatarFallback } from "@acme/ui/avatar";
 import {

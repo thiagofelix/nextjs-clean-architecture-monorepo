@@ -2,10 +2,10 @@ import "reflect-metadata";
 
 import { afterEach, beforeEach, expect, it } from "vitest";
 
-import { signInUseCase } from "@acme/core/use-cases/auth/sign-in.use-case";
-import { createTodoUseCase } from "@acme/core/use-cases/todos/create-todo.use-case";
-import { getTodosForUserUseCase } from "@acme/core/use-cases/todos/get-todos-for-user.use-case";
-import { destroyContainer, initializeContainer } from "@acme/core/di/container";
+import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
+import { createTodoUseCase } from "#use-cases/todos/create-todo.use-case";
+import { getTodosForUserUseCase } from "#use-cases/todos/get-todos-for-user.use-case";
+import { destroyContainer, initializeContainer } from "#di/container";
 
 beforeEach(() => {
   initializeContainer();

@@ -1,6 +1,6 @@
-import type { Cookie } from "@acme/core/entities/models/cookie";
-import { signInUseCase } from "@acme/core/use-cases/auth/sign-in.use-case";
-import { InputParseError } from "@acme/core/entities/errors/common";
+import type { Cookie } from "#entities/models/cookie";
+import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
+import { InputParseError } from "#entities/errors/common";
 import { startSpan } from "@sentry/nextjs";
 import { z } from "zod";
 

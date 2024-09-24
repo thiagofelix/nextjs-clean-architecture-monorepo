@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-clean-architecture-monorepo",
+  "name": "@acme/workspace",
   "private": true,
   "engines": {
     "node": ">=20.16.0"
@@ -23,11 +23,7 @@
     "ui-add": "turbo run ui-add"
   },
   "devDependencies": {
-    "@acme/prettier-config": "workspace:*",
     "@turbo/gen": "^2.1.1",
-    "prettier": "catalog:",
-    "turbo": "^2.1.1",
-    "typescript": "catalog:"
-  },
-  "prettier": "@acme/prettier-config"
+    "turbo": "^2.1.1"
+  }
 }

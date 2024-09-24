@@ -1,10 +1,9 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
-import { signUpUseCase } from "#use-cases/auth/sign-up.use-case";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { AuthenticationError } from "#entities/errors/auth";
+import { signUpUseCase } from "#use-cases/auth/sign-up.use-case";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();

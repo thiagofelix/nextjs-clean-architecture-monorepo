@@ -1,12 +1,11 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
-import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
+import { createTodoController } from "#controllers/todos/create-todo.controller";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { UnauthenticatedError } from "#entities/errors/auth";
 import { InputParseError } from "#entities/errors/common";
-import { createTodoController } from "#controllers/todos/create-todo.controller";
+import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();

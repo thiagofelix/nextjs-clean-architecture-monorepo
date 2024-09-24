@@ -1,12 +1,11 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
-import { SESSION_COOKIE } from "#config";
+import { env } from "#config";
+import { signUpController } from "#controllers/auth/sign-up.controller";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { AuthenticationError } from "#entities/errors/auth";
 import { InputParseError } from "#entities/errors/common";
-import { signUpController } from "#controllers/auth/sign-up.controller";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -27,7 +26,7 @@ it("returns cookie", async () => {
 
   expect(user).toBeDefined();
   expect(cookie).toMatchObject({
-    name: SESSION_COOKIE,
+    name: env.SESSION_COOKIE,
     value: `random_session_id_${user.id}`,
     attributes: {},
   });

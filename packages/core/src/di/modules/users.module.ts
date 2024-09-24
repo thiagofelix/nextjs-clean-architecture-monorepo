@@ -1,7 +1,7 @@
 import type { IUsersRepository } from "#repositories/users.repository.interface";
+import type { interfaces } from "inversify";
 import { UsersRepository } from "#infrastructure/repositories/users.repository";
 import { MockUsersRepository } from "#infrastructure/repositories/users.repository.mock";
-import type { interfaces } from "inversify";
 import { ContainerModule } from "inversify";
 
 import { DI_SYMBOLS } from "../types";

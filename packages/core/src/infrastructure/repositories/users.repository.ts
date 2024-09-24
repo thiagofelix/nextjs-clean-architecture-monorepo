@@ -1,7 +1,7 @@
-import { IUsersRepository } from "#repositories/users.repository.interface";
+import { captureException, startSpan } from "@sentry/nextjs";
 import { DatabaseOperationError } from "#entities/errors/common";
 import { User } from "#entities/models/user";
-import { captureException, startSpan } from "@sentry/nextjs";
+import { IUsersRepository } from "#repositories/users.repository.interface";
 import { eq } from "drizzle-orm";
 import { injectable } from "inversify";
 

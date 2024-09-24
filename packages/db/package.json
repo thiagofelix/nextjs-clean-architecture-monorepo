@@ -6,13 +6,16 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./src/index.ts"
+      "default": "./dist/index.js"
     },
     "./schema": {
       "types": "./dist/schema.d.ts",
-      "default": "./src/schema.ts"
+      "default": "./dist/schema.js"
     },
-    "./env": "./src/env.ts"
+    "./env": {
+      "types": "./dist/schema.d.ts",
+      "default": "./dist/schema.js"
+    }
   },
   "license": "MIT",
   "scripts": {

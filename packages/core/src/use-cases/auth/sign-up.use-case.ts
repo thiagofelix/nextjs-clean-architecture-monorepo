@@ -1,10 +1,10 @@
-import { getInjection } from "#di/container";
-import { AuthenticationError } from "#entities/errors/auth";
 import type { Cookie } from "#entities/models/cookie";
 import type { Session } from "#entities/models/session";
 import type { User } from "#entities/models/user";
 import { hash } from "@node-rs/argon2";
 import { startSpan } from "@sentry/nextjs";
+import { getInjection } from "#di/container";
+import { AuthenticationError } from "#entities/errors/auth";
 
 export function signUpUseCase(input: {
   username: string;

@@ -1,11 +1,10 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
+import { destroyContainer, initializeContainer } from "#di/container";
 import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
 import { createTodoUseCase } from "#use-cases/todos/create-todo.use-case";
 import { getTodosForUserUseCase } from "#use-cases/todos/get-todos-for-user.use-case";
-import { destroyContainer, initializeContainer } from "#di/container";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();

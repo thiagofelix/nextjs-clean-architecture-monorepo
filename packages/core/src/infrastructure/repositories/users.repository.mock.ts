@@ -1,6 +1,6 @@
-import { IUsersRepository } from "#repositories/users.repository.interface";
-import { User } from "#entities/models/user";
 import { hashSync } from "@node-rs/argon2";
+import { User } from "#entities/models/user";
+import { IUsersRepository } from "#repositories/users.repository.interface";
 import { injectable } from "inversify";
 
 @injectable()

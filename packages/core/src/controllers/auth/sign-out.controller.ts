@@ -1,8 +1,8 @@
-import { signOutUseCase } from "#use-cases/auth/sign-out.use-case";
-import { getInjection } from "#di/container";
-import { InputParseError } from "#entities/errors/common";
 import type { Cookie } from "#entities/models/cookie";
 import { startSpan } from "@sentry/nextjs";
+import { getInjection } from "#di/container";
+import { InputParseError } from "#entities/errors/common";
+import { signOutUseCase } from "#use-cases/auth/sign-out.use-case";
 
 export async function signOutController(
   sessionId: string | undefined,

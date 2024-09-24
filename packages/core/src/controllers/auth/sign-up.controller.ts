@@ -1,6 +1,6 @@
-import { signUpUseCase } from "#use-cases/auth/sign-up.use-case";
-import { InputParseError } from "#entities/errors/common";
 import { startSpan } from "@sentry/nextjs";
+import { InputParseError } from "#entities/errors/common";
+import { signUpUseCase } from "#use-cases/auth/sign-up.use-case";
 import { z } from "zod";
 
 const inputSchema = z

@@ -1,7 +1,7 @@
-import { ITodosRepository } from "#repositories/todos.repository.interface";
+import { captureException, startSpan } from "@sentry/nextjs";
 import { DatabaseOperationError } from "#entities/errors/common";
 import { Todo, TodoInsert } from "#entities/models/todo";
-import { captureException, startSpan } from "@sentry/nextjs";
+import { ITodosRepository } from "#repositories/todos.repository.interface";
 import { eq } from "drizzle-orm";
 import { injectable } from "inversify";
 

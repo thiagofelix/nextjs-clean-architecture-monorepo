@@ -1,11 +1,10 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
+import { env } from "#config";
+import { destroyContainer, initializeContainer } from "#di/container";
 import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
 import { signOutUseCase } from "#use-cases/auth/sign-out.use-case";
-import { SESSION_COOKIE } from "#config";
-import { destroyContainer, initializeContainer } from "#di/container";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -25,7 +24,7 @@ it("returns blank cookie", async () => {
 
   await expect(signOutUseCase(session.id)).resolves.toMatchObject({
     blankCookie: {
-      name: SESSION_COOKIE,
+      name: env.SESSION_COOKIE,
       value: "",
       attributes: {},
     },

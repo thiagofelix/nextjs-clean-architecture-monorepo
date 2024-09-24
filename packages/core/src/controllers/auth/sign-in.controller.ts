@@ -1,7 +1,7 @@
 import type { Cookie } from "#entities/models/cookie";
-import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
-import { InputParseError } from "#entities/errors/common";
 import { startSpan } from "@sentry/nextjs";
+import { InputParseError } from "#entities/errors/common";
+import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
 import { z } from "zod";
 
 const inputSchema = z.object({

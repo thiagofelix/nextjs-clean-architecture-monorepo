@@ -1,7 +1,5 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
 import {
   destroyContainer,
   getInjection,
@@ -10,6 +8,7 @@ import {
 import { MockTodosRepository } from "#infrastructure/repositories/todos.repository.mock";
 import { MockUsersRepository } from "#infrastructure/repositories/users.repository.mock";
 import { MockAuthenticationService } from "#infrastructure/services/authentication.service.mock";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();

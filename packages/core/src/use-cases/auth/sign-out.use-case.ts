@@ -1,6 +1,6 @@
-import { getInjection } from "#di/container";
 import type { Cookie } from "#entities/models/cookie";
 import { startSpan } from "@sentry/nextjs";
+import { getInjection } from "#di/container";
 
 export function signOutUseCase(
   sessionId: string,

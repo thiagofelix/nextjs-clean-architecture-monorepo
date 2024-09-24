@@ -1,9 +1,9 @@
-import { toggleTodoUseCase } from "#use-cases/todos/toggle-todo.use-case";
+import type { Todo } from "#entities/models/todo";
+import { startSpan } from "@sentry/nextjs";
 import { getInjection } from "#di/container";
 import { UnauthenticatedError } from "#entities/errors/auth";
 import { InputParseError } from "#entities/errors/common";
-import type { Todo } from "#entities/models/todo";
-import { startSpan } from "@sentry/nextjs";
+import { toggleTodoUseCase } from "#use-cases/todos/toggle-todo.use-case";
 import { z } from "zod";
 
 function presenter(todo: Todo) {

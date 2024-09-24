@@ -1,6 +1,5 @@
-import { startSpan } from "@sentry/nextjs";
-
 import type { Todo } from "#entities/models/todo";
+import { startSpan } from "@sentry/nextjs";
 import { getInjection } from "#di/container";
 import { UnauthenticatedError } from "#entities/errors/auth";
 import { getTodosForUserUseCase } from "#use-cases/todos/get-todos-for-user.use-case";

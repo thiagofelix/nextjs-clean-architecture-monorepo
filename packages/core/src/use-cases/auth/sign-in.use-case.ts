@@ -1,9 +1,9 @@
 import type { Cookie } from "#entities/models/cookie";
 import type { Session } from "#entities/models/session";
-import { getInjection } from "#di/container";
-import { AuthenticationError } from "#entities/errors/auth";
 import { verify } from "@node-rs/argon2";
 import { startSpan } from "@sentry/nextjs";
+import { getInjection } from "#di/container";
+import { AuthenticationError } from "#entities/errors/auth";
 
 export function signInUseCase(input: {
   username: string;

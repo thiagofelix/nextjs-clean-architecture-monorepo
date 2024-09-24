@@ -1,14 +1,13 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
+import { destroyContainer, initializeContainer } from "#di/container";
+import { UnauthorizedError } from "#entities/errors/auth";
+import { NotFoundError } from "#entities/errors/common";
 import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
 import { signOutUseCase } from "#use-cases/auth/sign-out.use-case";
 import { createTodoUseCase } from "#use-cases/todos/create-todo.use-case";
 import { toggleTodoUseCase } from "#use-cases/todos/toggle-todo.use-case";
-import { destroyContainer, initializeContainer } from "#di/container";
-import { UnauthorizedError } from "#entities/errors/auth";
-import { NotFoundError } from "#entities/errors/common";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();

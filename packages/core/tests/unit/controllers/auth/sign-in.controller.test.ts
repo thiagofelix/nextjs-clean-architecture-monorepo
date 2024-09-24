@@ -1,12 +1,11 @@
 import "reflect-metadata";
 
-import { afterEach, beforeEach, expect, it } from "vitest";
-
-import { SESSION_COOKIE } from "#config";
+import { env } from "#config";
+import { signInController } from "#controllers/auth/sign-in.controller";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { AuthenticationError } from "#entities/errors/auth";
 import { InputParseError } from "#entities/errors/common";
-import { signInController } from "#controllers/auth/sign-in.controller";
+import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {
   initializeContainer();
@@ -22,7 +21,7 @@ it("signs in with valid input", async () => {
   await expect(
     signInController({ username: "one", password: "password-one" }),
   ).resolves.toMatchObject({
-    name: SESSION_COOKIE,
+    name: env.SESSION_COOKIE,
     value: "random_session_id_1",
     attributes: {},
   });

@@ -1,6 +1,6 @@
 import "reflect-metadata";
 
-import { env } from "#config";
+import { env } from "#env";
 import { signUpController } from "#controllers/auth/sign-up.controller";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { AuthenticationError } from "#entities/errors/auth";

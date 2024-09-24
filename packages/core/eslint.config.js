@@ -10,4 +10,12 @@ export default [
       "@typescript-eslint/no-floating-promises": "off",
     },
   },
+  {
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.eslint.json",
+        projectService: false,
+      },
+    },
+  },
 ];

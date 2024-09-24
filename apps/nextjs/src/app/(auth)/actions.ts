@@ -6,6 +6,7 @@ import {
   captureException,
   withServerActionInstrumentation,
 } from "@sentry/nextjs";
+import { env } from "#env";
 
 import type { Cookie } from "@acme/core/entities/models/cookie";
 import { signInController } from "@acme/core/controllers/auth/sign-in.controller";
@@ -16,8 +17,6 @@ import {
   UnauthenticatedError,
 } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-
-import { env } from "../../../../../packages/core/dist/src/env";
 
 export async function signUp(formData: FormData) {
   return await withServerActionInstrumentation(

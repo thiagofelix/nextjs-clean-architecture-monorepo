@@ -1,6 +1,6 @@
 import "reflect-metadata";
 
-import { env } from "#config";
+import { env } from "#env";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { signInUseCase } from "#use-cases/auth/sign-in.use-case";
 import { signOutUseCase } from "#use-cases/auth/sign-out.use-case";

@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { captureException, startSpan } from "@sentry/nextjs";
+import { env } from "#env";
 
 import { getTodosForUserController } from "@acme/core/controllers/todos/get-todos-for-user.controller";
 import {
@@ -10,7 +11,6 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@acme/ui/card";
 import { Separator } from "@acme/ui/separator";
 
-import { env } from "../../../../packages/core/dist/src/env";
 import { UserMenu } from "./_components/user-menu";
 import { CreateTodo } from "./add-todo";
 import { Todos } from "./todos";

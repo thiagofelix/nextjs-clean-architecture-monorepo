@@ -1,10 +1,10 @@
 import "reflect-metadata";
 
-import { env } from "#config";
 import { signInController } from "#controllers/auth/sign-in.controller";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { AuthenticationError } from "#entities/errors/auth";
 import { InputParseError } from "#entities/errors/common";
+import { env } from "#env";
 import { afterEach, beforeEach, expect, it } from "vitest";
 
 beforeEach(() => {

@@ -31,11 +31,12 @@
       "cache": false
     }
   },
-  "globalEnv": ["PORT", "DATABASE_URL", "DATABASE_AUTH_TOKEN"],
-  "globalPassThroughEnv": [
+  "globalEnv": [
     "NODE_ENV",
-    "NEXT_RUNTIME",
-    "CI",
-    "npm_lifecycle_event"
-  ]
+    "SESSION_COOKIE",
+    "PORT",
+    "DATABASE_URL",
+    "DATABASE_AUTH_TOKEN"
+  ],
+  "globalPassThroughEnv": []
 }

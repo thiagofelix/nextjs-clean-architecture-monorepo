@@ -1,0 +1,9 @@
+{
+  "extends": "@acme/tsconfig/internal-package.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "types": ["reflect-metadata"]
+  },
+  "include": ["src", "tests"],
+  "exclude": ["node_modules"]
+}

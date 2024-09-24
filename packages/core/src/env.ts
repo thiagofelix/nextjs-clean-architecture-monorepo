@@ -11,5 +11,8 @@ export const env = createEnv({
       .enum(["development", "production", "test"])
       .default("development"),
   },
-  runtimeEnv: process.env,
+  runtimeEnvStrict: {
+    SESSION_COOKIE: process.env.SESSION_COOKIE,
+    NODE_ENV: process.env.NODE_ENV,
+  },
 });

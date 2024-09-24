@@ -1,7 +1,7 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
-import { env as coreEnv } from "../../../packages/core/dist/src/env";
+import { env as coreEnv } from "@acme/core/env";
 
 export const env = createEnv({
   extends: [coreEnv],
@@ -15,8 +15,7 @@ export const env = createEnv({
    * This way you can ensure the app isn't built with invalid env vars.
    */
   server: {
-    DATABASE_URL: z.string().url(),
-    NEXT_RUNTIME: z.string().optional(),
+    NEXT_RUNTIME: z.enum(["nodejs", "edge"]).optional(),
   },
 
   /**

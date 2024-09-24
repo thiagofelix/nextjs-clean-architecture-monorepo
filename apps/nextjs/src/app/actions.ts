@@ -6,6 +6,7 @@ import {
   captureException,
   withServerActionInstrumentation,
 } from "@sentry/nextjs";
+import { env } from "#env";
 
 import { createTodoController } from "@acme/core/controllers/todos/create-todo.controller";
 import { toggleTodoController } from "@acme/core/controllers/todos/toggle-todo.controller";
@@ -14,8 +15,6 @@ import {
   InputParseError,
   NotFoundError,
 } from "@acme/core/entities/errors/common";
-
-import { env } from "../../../../packages/core/dist/src/env";
 
 export async function createTodo(formData: FormData) {
   return await withServerActionInstrumentation(

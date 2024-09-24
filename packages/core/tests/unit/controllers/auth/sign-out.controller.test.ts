@@ -1,6 +1,6 @@
 import "reflect-metadata";
 
-import { env } from "#config";
+import { env } from "#env";
 import { signOutController } from "#controllers/auth/sign-out.controller";
 import { destroyContainer, initializeContainer } from "#di/container";
 import { InputParseError } from "#entities/errors/common";

@@ -1,7 +1,7 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
-import { env as dbEnv } from "@acme/db/env";
+import { dbEnv } from "@acme/core/config";
 
 export const env = createEnv({
   extends: [dbEnv],

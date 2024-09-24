@@ -54,9 +54,6 @@ importers:
       '@acme/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@acme/db':
-        specifier: workspace:*
-        version: link:../../packages/db
       '@acme/ui':
         specifier: workspace:*
         version: link:../../packages/ui

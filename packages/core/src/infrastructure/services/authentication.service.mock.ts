@@ -1,13 +1,12 @@
-import { inject, injectable } from "inversify";
-
 import type { IUsersRepository } from "#repositories/users.repository.interface";
-import { IAuthenticationService } from "#services/authentication.service.interface";
-import { SESSION_COOKIE } from "#config";
 import { DI_SYMBOLS } from "#di/types";
 import { UnauthenticatedError } from "#entities/errors/auth";
 import { Cookie } from "#entities/models/cookie";
 import { Session, sessionSchema } from "#entities/models/session";
 import { User } from "#entities/models/user";
+import { env } from "#env";
+import { IAuthenticationService } from "#services/authentication.service.interface";
+import { inject, injectable } from "inversify";
 
 @injectable()
 export class MockAuthenticationService implements IAuthenticationService {
@@ -46,7 +45,7 @@ export class MockAuthenticationService implements IAuthenticationService {
     };
     const session = sessionSchema.parse(luciaSession);
     const cookie: Cookie = {
-      name: SESSION_COOKIE,
+      name: env.SESSION_COOKIE,
       value: session.id + "_" + user.id,
       attributes: {},
     };
@@ -59,7 +58,7 @@ export class MockAuthenticationService implements IAuthenticationService {
   async invalidateSession(sessionId: string): Promise<{ blankCookie: Cookie }> {
     delete this._sessions[sessionId];
     const blankCookie: Cookie = {
-      name: SESSION_COOKIE,
+      name: env.SESSION_COOKIE,
       value: "",
       attributes: {},
     };

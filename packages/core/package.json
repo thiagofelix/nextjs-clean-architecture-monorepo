@@ -19,9 +19,9 @@
       "types": "./dist/src/di/*.d.ts",
       "default": "./dist/src/di/*.js"
     },
-    "./config": {
-      "types": "./dist/src/config.d.ts",
-      "default": "./dist/src/config.js"
+    "./env": {
+      "types": "./dist/src/env.d.ts",
+      "default": "./dist/src/env.js"
     }
   },
   "license": "MIT",
@@ -38,6 +38,7 @@
     "@acme/eslint-config": "workspace:*",
     "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
+    "@t3-oss/env-core": "^0.11.1",
     "@vitest/coverage-istanbul": "^2.0.5",
     "eslint": "catalog:",
     "prettier": "catalog:",

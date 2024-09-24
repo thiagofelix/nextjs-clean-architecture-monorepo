@@ -8,15 +8,16 @@ import {
 } from "@sentry/nextjs";
 
 import type { Cookie } from "@acme/core/entities/models/cookie";
-import { SESSION_COOKIE } from "@acme/core/config";
+import { signInController } from "@acme/core/controllers/auth/sign-in.controller";
+import { signOutController } from "@acme/core/controllers/auth/sign-out.controller";
+import { signUpController } from "@acme/core/controllers/auth/sign-up.controller";
 import {
   AuthenticationError,
   UnauthenticatedError,
 } from "@acme/core/entities/errors/auth";
 import { InputParseError } from "@acme/core/entities/errors/common";
-import { signInController } from "@acme/core/controllers/auth/sign-in.controller";
-import { signOutController } from "@acme/core/controllers/auth/sign-out.controller";
-import { signUpController } from "@acme/core/controllers/auth/sign-up.controller";
+
+import { env } from "../../../../../packages/core/dist/src/env";
 
 export async function signUp(formData: FormData) {
   return await withServerActionInstrumentation(
@@ -106,7 +107,7 @@ export async function signOut() {
     { recordResponse: true },
     async () => {
       const cookiesStore = cookies();
-      const sessionId = cookiesStore.get(SESSION_COOKIE)?.value;
+      const sessionId = cookiesStore.get(env.SESSION_COOKIE)?.value;
 
       let blankCookie: Cookie;
       try {

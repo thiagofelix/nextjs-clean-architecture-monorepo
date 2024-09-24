@@ -1,12 +1,12 @@
 import type { IUsersRepository } from "#repositories/users.repository.interface";
-import { IAuthenticationService } from "#services/authentication.service.interface";
-import { SESSION_COOKIE } from "#config";
+import { startSpan } from "@sentry/nextjs";
 import { DI_SYMBOLS } from "#di/types";
 import { UnauthenticatedError } from "#entities/errors/auth";
 import { Cookie } from "#entities/models/cookie";
 import { Session, sessionSchema } from "#entities/models/session";
 import { User } from "#entities/models/user";
-import { startSpan } from "@sentry/nextjs";
+import { env } from "#env";
+import { IAuthenticationService } from "#services/authentication.service.interface";
 import { inject, injectable } from "inversify";
 import { generateIdFromEntropySize, Lucia } from "lucia";
 
@@ -22,7 +22,7 @@ export class AuthenticationService implements IAuthenticationService {
   ) {
     this._lucia = new Lucia(luciaAdapter, {
       sessionCookie: {
-        name: SESSION_COOKIE,
+        name: env.SESSION_COOKIE,
         expires: false,
         attributes: {
           secure: process.env.NODE_ENV === "production",

@@ -7,14 +7,15 @@ import {
   withServerActionInstrumentation,
 } from "@sentry/nextjs";
 
-import { SESSION_COOKIE } from "@acme/core/config";
+import { createTodoController } from "@acme/core/controllers/todos/create-todo.controller";
+import { toggleTodoController } from "@acme/core/controllers/todos/toggle-todo.controller";
 import { UnauthenticatedError } from "@acme/core/entities/errors/auth";
 import {
   InputParseError,
   NotFoundError,
 } from "@acme/core/entities/errors/common";
-import { createTodoController } from "@acme/core/controllers/todos/create-todo.controller";
-import { toggleTodoController } from "@acme/core/controllers/todos/toggle-todo.controller";
+
+import { env } from "../../../../packages/core/dist/src/env";
 
 export async function createTodo(formData: FormData) {
   return await withServerActionInstrumentation(
@@ -23,7 +24,7 @@ export async function createTodo(formData: FormData) {
     async () => {
       try {
         const data = Object.fromEntries(formData.entries());
-        const sessionId = cookies().get(SESSION_COOKIE)?.value;
+        const sessionId = cookies().get(env.SESSION_COOKIE)?.value;
         await createTodoController(data, sessionId);
       } catch (err) {
         if (err instanceof InputParseError) {
@@ -51,7 +52,7 @@ export async function toggleTodo(todoId: number) {
     { recordResponse: true },
     async () => {
       try {
-        const sessionId = cookies().get(SESSION_COOKIE)?.value;
+        const sessionId = cookies().get(env.SESSION_COOKIE)?.value;
         await toggleTodoController({ todoId }, sessionId);
       } catch (err) {
         if (err instanceof InputParseError) {

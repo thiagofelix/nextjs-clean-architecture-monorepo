@@ -1,10 +1,10 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
-import { dbEnv } from "@acme/core/config";
+import { env as coreEnv } from "../../../packages/core/dist/src/env";
 
 export const env = createEnv({
-  extends: [dbEnv],
+  extends: [coreEnv],
   shared: {
     NODE_ENV: z
       .enum(["development", "production", "test"])

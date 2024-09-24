@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import { captureException, startSpan } from "@sentry/nextjs";
 
 import { getTodosForUserController } from "@acme/core/controllers/todos/get-todos-for-user.controller";
-import { SESSION_COOKIE } from "@acme/core/config";
 import {
   AuthenticationError,
   UnauthenticatedError,
@@ -11,6 +10,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@acme/ui/card";
 import { Separator } from "@acme/ui/separator";
 
+import { env } from "../../../../packages/core/dist/src/env";
 import { UserMenu } from "./_components/user-menu";
 import { CreateTodo } from "./add-todo";
 import { Todos } from "./todos";
@@ -39,7 +39,7 @@ async function getTodos(sessionId: string | undefined) {
 }
 
 export default async function Home() {
-  const sessionId = cookies().get(SESSION_COOKIE)?.value;
+  const sessionId = cookies().get(env.SESSION_COOKIE)?.value;
 
   const todos = await getTodos(sessionId);
 
